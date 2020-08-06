@@ -1,0 +1,146 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=big5">
+<link href="demo0.css" rel="stylesheet" type="text/css" />
+<script src="../jsui/jquery-1.4.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var parParam = new Object();
+    var d = new Date();
+    parParam.nian0 = d.getFullYear();
+    parParam.nian1 = d.getFullYear() - 1;
+    parParam.nian2 = d.getFullYear() - 2;
+    parParam.yue = d.getMonth() + 1;
+    if (parParam.yue < 10) {
+        parParam.yue = "0" + parParam.yue;
+    }
+    $(function () {
+        var g = 3;
+        var w = 1;
+        parParam.mode = "load";
+        $("#nian2").text(parParam.nian2);
+        $("#nian0").text(parParam.nian0);
+        $("#nian20").text(parParam.nian2);
+        $("#nian10").text(parParam.nian1);
+        $("#nian00").text(parParam.nian0);
+        $("#yue0").text(parParam.yue);
+        $.post("demo0.ashx",
+                parParam,
+                function (data, status) {
+                    data = eval("(" + data + ")");
+                    $.each(data, function (n, value) {
+                        if (n == 10) {
+                            w = 2;
+                            g = 3;
+                        }
+                        if (n == 20) {
+                            w = 3;
+                            g = 3;
+                        }
+                        if (n == 30) {
+                            w = 4;
+                            g = 3;
+                        }
+                        $("table tr:eq(" + g++ + ") td:eq(" + w + ")").text(value.heji);
+                    });
+                }
+                );
+    });
+</script>
+</head>
+
+<body>
+
+<table x:str border=0 cellpadding=0 cellspacing=0 width=355 class=xl6617092
+ style='border-collapse:collapse;table-layout:fixed;width:267pt'>
+ <tr height=28 style='mso-height-source:userset;height:21.0pt'>
+  <td colspan=5 height=28 class=xl7317092 width=355 style='border-right:.5pt solid black;
+  height:21.0pt;width:267pt'><a id="nian2"></a><font class="font717092">年～</font><font
+  class="font617092"><a id="nian0"></a></font><font class="font717092">年聯防排查異常匯總</font></td>
+ </tr>
+ <tr height=19 style='mso-height-source:userset;height:14.25pt'>
+  <td rowspan=2 height=38 class=xl7617092 width=76 style='border-bottom:.5pt solid black; height:28.5pt;border-top:none;width:57pt'>廠區</td>
+  <td rowspan=2 class=xl7617092 width=62 style='border-bottom:.5pt solid black;  border-top:none;width:47pt'><a id="nian20"></a>年累計</td>
+  <td rowspan=2 class=xl7117092 style='border-bottom:.5pt solid black; border-top:none'><a id="nian10"></a>年累計</td>
+  <td rowspan=2 class=xl7617092 width=57 style='border-bottom:.5pt solid black;  border-top:none;width:43pt'><a id="yue0"></a>月</td>
+  <td rowspan=2 class=xl7117092 style='border-bottom:.5pt solid black; border-top:none'><a id="nian00"></a>年累計</td>
+ </tr>
+ <tr height=19 style='mso-height-source:userset;height:14.25pt'>
+ </tr>
+ <tr height=25 style='mso-height-source:userset;height:18.75pt'>
+  <td height=25 class=xl6717092 width=76 style='height:18.75pt;border-top:none; width:57pt'>淮安</td>
+  <td class=xl6717092 width=62 style='border-top:none;border-left:none; width:47pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+  <td class=xl6717092 width=57 style='border-top:none;border-left:none; width:43pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+ </tr>
+ <tr height=25 style='mso-height-source:userset;height:18.75pt'>
+  <td height=25 class=xl6717092 width=76 style='height:18.75pt;border-top:none;
+  width:57pt'>昆山</td>
+  <td class=xl6717092 width=62 style='border-top:none;border-left:none; width:47pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+  <td class=xl6717092 width=57 style='border-top:none;border-left:none; width:43pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+ </tr>
+ <tr height=23 style='mso-height-source:userset;height:17.25pt'>
+  <td height=23 class=xl6717092 width=76 style='height:17.25pt;border-top:none; width:57pt'>寶科</td>
+  <td class=xl6717092 width=62 style='border-top:none;border-left:none; width:47pt' x:num>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none' x:num>0</td>
+  <td class=xl6717092 width=57 style='border-top:none;border-left:none;  width:43pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+ </tr>
+ <tr height=25 style='mso-height-source:userset;height:18.75pt'>
+  <td height=25 class=xl6717092 width=76 style='height:18.75pt;border-top:none;  width:57pt'>廊坊</td>
+  <td class=xl6717092 width=62 style='border-top:none;border-left:none;  width:47pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+  <td class=xl6717092 width=57 style='border-top:none;border-left:none;  width:43pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+ </tr>
+ <tr height=25 style='mso-height-source:userset;height:18.75pt'>
+  <td height=25 class=xl6717092 width=76 style='height:18.75pt;border-top:none;  width:57pt'>龍華</td>
+  <td class=xl6717092 width=62 style='border-top:none;border-left:none;  width:47pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+  <td class=xl6717092 width=57 style='border-top:none;border-left:none;  width:43pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+ </tr>
+ <tr height=25 style='mso-height-source:userset;height:18.75pt'>
+  <td height=25 class=xl6717092 width=76 style='height:18.75pt;border-top:none;  width:57pt'>鄭州</td>
+  <td class=xl6717092 width=62 style='border-top:none;border-left:none;  width:47pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+  <td class=xl6717092 width=57 style='border-top:none;border-left:none;  width:43pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+ </tr>
+ <tr height=25 style='mso-height-source:userset;height:18.75pt'>
+  <td height=25 class=xl6717092 width=76 style='height:18.75pt;border-top:none;  width:57pt'>重慶</td>
+  <td class=xl6717092 width=62 style='border-top:none;border-left:none;  width:47pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+  <td class=xl6717092 width=57 style='border-top:none;border-left:none;  width:43pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+ </tr>
+ <tr height=25 style='mso-height-source:userset;height:18.75pt'>
+  <td height=25 class=xl6717092 width=76 style='height:18.75pt;border-top:none;  width:57pt'>豐城</td>
+  <td class=xl6717092 width=62 style='border-top:none;border-left:none;  width:47pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+  <td class=xl6717092 width=57 style='border-top:none;border-left:none;  width:43pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+ </tr>
+ <tr height=25 style='mso-height-source:userset;height:18.75pt'>
+  <td height=25 class=xl6717092 width=76 style='height:18.75pt;border-top:none;  width:57pt'>贛州</td>
+  <td class=xl6717092 width=62 style='border-top:none;border-left:none;  width:47pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+  <td class=xl6717092 width=57 style='border-top:none;border-left:none; width:43pt'>0</td>
+  <td class=xl6817092 style='border-top:none;border-left:none'>0</td>
+ </tr>
+ <tr height=35 style='mso-height-source:userset;height:26.25pt'>
+  <td height=35 class=xl6917092 width=76 style='height:26.25pt;border-top:none;width:57pt'>合計</td>
+  <td class=xl7017092 style='border-top:none;border-left:none'>0</td>
+  <td class=xl7017092 style='border-top:none;border-left:none'>0</td>
+  <td class=xl7017092 style='border-top:none;border-left:none'>0</td>
+  <td class=xl7017092 style='border-top:none;border-left:none'>0</td>
+ </tr>
+
+</table>
+
+</body>
+
+</html>

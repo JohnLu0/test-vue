@@ -1,0 +1,1 @@
+ <add name="Constr" connectionString="Initial Catalog='TSC_SFC';Server='10.88.93.104';uid=TSC_SFC;pwd=Foxconntsc;"></add>
